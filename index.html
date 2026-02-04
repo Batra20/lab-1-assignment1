@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href=""./style.css/>
+  <meta charset="UTF-8">
+  <title>Smart Event Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>This is assignment 1 </h1>
-    <script scr=""./script.js"></script>
-</body>
 
+<div class="header">
+  🎯 <span>Smart Event Dashboard</span>
+</div>
+
+<div class="container">
+
+  <!-- LEFT CARD -->
+  <div class="card left">
+    <h2>Add New Event</h2>
+
+    <label>Event Title:</label>
+    <input type="text" id="title">
+
+    <label>Event Date:</label>
+    <input type="date" id="date">
+
+    <label>Category:</label>
+    <select id="category">
+      <option>Conference</option>
+      <option>Workshop</option>
+      <option>Meeting</option>
+    </select>
+
+    <label>Description:</label>
+    <textarea id="desc"></textarea>
+
+    <button onclick="addEvent()">Add Event</button>
+  </div>
+
+  <!-- RIGHT CARD -->
+  <div class="card right">
+    <h2>My Events</h2>
+
+    <div class="btn-row">
+      <button onclick="clearEvents()">Clear All Events</button>
+      <button onclick="sampleEvent()">Add Sample Events</button>
+    </div>
+
+    <div id="events"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
