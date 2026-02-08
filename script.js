@@ -1,34 +1,52 @@
-function addEvent() {
-  let title = document.getElementById("title").value;
-  let date = document.getElementById("date").value;
-  let cat = document.getElementById("category").value;
-  let desc = document.getElementById("desc").value;
+let rightBox = document.querySelector('#rightBox')
 
-  if (title === "") return;
 
-  document.getElementById("events").innerHTML += `
-    <div class="event-card">
-      <div class="close" onclick="this.parentElement.remove()">×</div>
-      <h3>${title}</h3>
-      📅 ${date}<br>
-      <div class="category">${cat}</div>
-      <p>${desc}</p>
-    </div>
-  `;
+let eventObject = {
+    title: '',
+    date: '',
+    categories: '',
+    description: ''
 }
 
-function clearEvents() {
-  document.getElementById("events").innerHTML = "";
+function eventSubmitHandler(event) {
+    event.preventDefault()
+    // storing data in object
+    eventObject.title = event.target.title.value;
+    eventObject.date = event.target.date.value;
+    eventObject.categories = event.target.categories.value
+    eventObject.description = event.target.description.value
+
+
+    // creating card
+
+    let eachList = document.createElement('div')
+    eachList.classList.add('eachList')
+    // console.log(eachList)
+
+
+    eachList.innerHTML = ` <p>${eventObject.title}</p>
+                 <p>${eventObject.date}</p>
+                <p>${eventObject.description}</p>
+                  <p>${eventObject.categories}</p>
+              <span class="delBtn" onclick='deleteHandler(this)'>&#10005;</span>`
+
+
+
+
+    console.log(eachList)
+
+    rightBox.append(eachList)
+
+
+
+
+
+    // console.log(eventObject)
+
+
 }
 
-function sampleEvent() {
-  document.getElementById("events").innerHTML = `
-    <div class="event-card">
-      <div class="close" onclick="this.parentElement.remove()">×</div>
-      <h3>Web Development Conference</h3>
-      📅 2026-03-15<br>
-      <div class="category">Conference</div>
-      <p>Annual conference on modern web technologies.</p>
-    </div>
-  `;
+function deleteHandler(btn){
+    btn.parentElement.remove()
+
 }

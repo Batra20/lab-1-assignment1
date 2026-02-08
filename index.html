@@ -1,55 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Smart Event Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #eventForm{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            width: 300px;
+            padding: 20px;
+            gap: 5px;
+        }
+
+        #rightBox{
+            border: 2px solid black;
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        #eventDashboard{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+
+        .eachList{
+            border: 2px solid black;
+            height: 100px;
+            width: 200px;
+            position: relative;
+        }
+
+
+        .delBtn{
+            position: absolute;
+            right: 5px;
+            top: 0px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="header">
-  🎯 <span>Smart Event Dashboard</span>
-</div>
+    <div id="eventDashboard">
+        <div id="leftBox">
+            <form id="eventForm" onsubmit="eventSubmitHandler(event)">
+                <label>Title</label>
+                <input type="text" name="title"/>
 
-<div class="container">
+                <label>Date</label>
+                <input type="date" name="date"/>
 
-  <!-- LEFT CARD -->
-  <div class="card left">
-    <h2>Add New Event</h2>
+                <label>Categories</label>
+                <select name="categories">
+                    <option>social</option>
+                    <option>Meetup</option>
+                    <option>Hackathon</option>
+                </select>
 
-    <label>Event Title:</label>
-    <input type="text" id="title">
+                <label >Description</label>
+   
+                <textarea name="description"></textarea>
 
-    <label>Event Date:</label>
-    <input type="date" id="date">
+                <button type="submit">Add Event</button>
+            </form>
+        </div>
 
-    <label>Category:</label>
-    <select id="category">
-      <option>Conference</option>
-      <option>Workshop</option>
-      <option>Meeting</option>
-    </select>
+        <div id="rightBox">
+            <!-- <div class="eachList">
+                <p>Title</p>
+                <p>date</p>
+                <p>description</p>
+                <p>categories</p>
+                <span class="delBtn">&#10005;</span>
 
-    <label>Description:</label>
-    <textarea id="desc"></textarea>
-
-    <button onclick="addEvent()">Add Event</button>
-  </div>
-
-  <!-- RIGHT CARD -->
-  <div class="card right">
-    <h2>My Events</h2>
-
-    <div class="btn-row">
-      <button onclick="clearEvents()">Clear All Events</button>
-      <button onclick="sampleEvent()">Add Sample Events</button>
+            </div> -->
+           
+        </div>
     </div>
-
-    <div id="events"></div>
-  </div>
-
-</div>
-
-<script src="script.js"></script>
+    
+    <script src="./script.js"></script>
 </body>
 </html>
