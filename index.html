@@ -4,97 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            background: linear-gradient(135deg, rgb(11, 171, 196), rgb(5, 209, 209));
-        }
-        #eventForm{
-            display: flex;
-            flex-direction: column;
-            border: 2px solid black;
-            width: 300px;
-            padding: 20px;
-            gap: 5px;
-        }
-
-        #rightBox{
-            border: 2px solid black;
-            width: 500px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        #eventDashboard{
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 20px;
-        }
-
-
-        .eachList{
-            border: 2px solid black;
-            height: 100px;
-            width: 200px;
-            position: relative;
-        }
-
-
-        .delBtn{
-            position: absolute;
-            right: 5px;
-            top: 0px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="eventDashboard">
-        <div id="leftBox">
-            <form id="eventForm" onsubmit="eventSubmitHandler(event)">
-                <label>Title</label>
-                <input type="text" name="title"/>
-
-                <label>Date</label>
-                <input type="date" name="date"/>
-
-                <label>Categories</label>
-                <select name="categories">
-                    <option>social</option>
-                    <option>Meetup</option>
-                    <option>Hackathon</option>
+    <div class="container">
+        <h1 class="Header">Smart Event Dashboard</h1>
+        <div class="leftdiv">
+            <h2 class="Head div">Add New Event</h2>
+            <form class="form" onsubmit="eventSubmitHandler(event)">
+                <label>Event Title : </label>
+                <input type="text" name="title">
+                <label>Event Date : </label>
+                <input type="date" name="date" id="dd/mm/yyyy">
+                <label>Category : </label>
+                <select name="category" id="">
+                    <option value="confrence">confrence</option>
+                    <option value="workshop">workshop</option>
+                    <option value="meetup">meetup</option>
+                    <option value="webinar">webinar</option>
+                    <option value="social">social</option>
                 </select>
-
-                <label >Description</label>
-   
+                <label>Discription : </label>
                 <textarea name="description"></textarea>
-
-                <button type="submit">Add Event</button>
+                <input class="submit" type="submit" value="Add Event">
             </form>
         </div>
-
-        <div id="rightBox">
-            <h1>Events</h1>
-            <!-- <div class="eachList">
-                <p>Title</p>
-                <p>date</p>
-                <p>description</p>
-                <p>categories</p>
-                <span class="delBtn">&#10005;</span>
-
-            </div> -->
-           
+        <div class="rightdiv">
+            <h2 class="Head">My Events</h2>
+            <input class="submit" id="clear-all" type="button" value="Clear All Events">
+            <div id="event-list"></div> 
         </div>
     </div>
-    
-    <script src="./script.js"></script>
+    <script src=script.js></script>
 </body>
 </html>
